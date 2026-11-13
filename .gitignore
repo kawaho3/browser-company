@@ -1,0 +1,24 @@
+# Placeholder for future app code; the current repo is documentation-first.
+# Never commit credentials, local machine settings, build caches or huge binaries.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+node_modules/
+dist/
+build/
+out/
+target/
+.cache/
+__pycache__/
+*.pyc
