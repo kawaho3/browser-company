@@ -21,7 +21,7 @@
 | New contributor | [Onboarding](docs/ONBOARDING.md) and [Contributing](CONTRIBUTING.md) |
 | Codex / AI coding agent | [AGENTS.md](AGENTS.md) first |
 | Product / design | [Vision](docs/VISION.md) and [Feature matrix](docs/FEATURE_MATRIX.md) |
-| Tech lead | [Architecture](docs/ARCHITECTURE.md), [Reuse catalog](docs/REUSE_CATALOG.md), [Decision log](docs/DECISIONS.md) |
+| Tech lead | [Architecture](docs/ARCHITECTURE.md), [Reuse catalog](docs/REUSE_CATALOG.md), [Complete repository study list](REPOSITORIES_TO_STUDY.txt), [Decision log](docs/DECISIONS.md) |
 | Build engineer | [Build, environments & cost](docs/BUILD_AND_COST.md) |
 | Security / legal | [Security policy](SECURITY.md), [Security & privacy](docs/SECURITY_AND_PRIVACY.md), [Ownership & licensing](docs/LEGAL_AND_BRANDING.md) |
 | Project manager | [Roadmap](docs/ROADMAP.md) and [Backlog](docs/BACKLOG.md) |

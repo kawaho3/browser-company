@@ -1,0 +1,249 @@
+BROWSER COMPANY - PREVIOUSLY RECOMMENDED GITHUB REPOSITORIES
+===========================================================
+Study/reference list for independent Chrome-competitor browser
+Prepared: 2026-11-15
+Project: https://github.com/kawaho3/browser-company
+
+PURPOSE
+-------
+This lists ALL 18 distinct GitHub repositories recommended in our earlier
+browser-company planning discussion. It is a research index, NOT a list
+of installed dependencies or legally approved components.
+
+MISSION
+-------
+Build an independent, competitive browser using ONE browser foundation,
+a limited number of compatible open-source components, and original
+product features. Prefer reusing existing source and systems over
+spending Codex credits rewriting mature implementations.
+
+IMPORTANT ARCHITECTURE DECISION
+-------------------------------
+- Preferred foundation to evaluate first: Brave Core (already uses
+  Chromium and integrates Brave privacy components).
+- Direct Chromium is the main alternative.
+- Do NOT merge whole Firefox, Zen, Ladybird, Chromium, Brave, Min and
+  ungoogled-chromium source trees together.
+- Choosing Brave Core means Chromium is already part of its managed
+  dependency tree; do not include a separate, duplicated Chromium fork.
+- A repo being public does NOT imply its source or assets can be used
+  without license, trademark, attribution and patent review.
+- Current status: candidate research only; no browser is built here.
+
+====================================================================
+A. BROWSER FOUNDATIONS & REFERENCE IMPLEMENTATIONS (7 repositories)
+====================================================================
+
+01. Chromium
+    URL: https://github.com/chromium/chromium
+    Purpose: Main browser engine and full-browser codebase.
+    Study: Rendering, JavaScript, multi-process security, sandbox,
+           navigation, tabs, profiles, extensions, updates, platform builds.
+    Decision: PRIMARY FOUNDATION OPTION B (direct fork).
+    Caveat: Very large source/build requirements. Proprietary Google
+            services are not automatically included.
+
+02. Brave Core
+    URL: https://github.com/brave/brave-core
+    Purpose: Chromium-based browser customization layer and integrations.
+    Study: Upstream management, privacy protections, UI customization,
+           branding and services removal, patch strategy, build scripts.
+    Decision: PRIMARY FOUNDATION OPTION A (preferred for M0 audit).
+    Caveat: Includes Chromium as a managed dependency. Examine MPL-2.0
+            and the many additional licenses in the complete distribution.
+
+03. Zen Browser (Firefox-based)
+    URL: https://github.com/zen-browser/desktop
+    Purpose: Modern browser product/UI reference.
+    Study: Workspaces, tab layouts, user experience and product ideas.
+    Decision: STUDY ONLY; do not merge engine or entire codebase.
+
+04. Ungoogled Chromium
+    URL: https://github.com/ungoogled-software/ungoogled-chromium
+    Purpose: Privacy-focused Chromium modification reference.
+    Study: Removal/disablement of Google services and related patches.
+    Decision: STUDY CHERRY-PICKABLE IDEAS ONLY, after license/security
+              and upstream-version analysis; no entire-fork merge.
+
+05. Mozilla Firefox
+    URL: https://github.com/mozilla-firefox/firefox
+    Purpose: Independent browser-engine and product reference.
+    Study: Features, security/privacy approaches, accessibility,
+           developer tools and browser release management.
+    Decision: RESEARCH/BENCHMARK ONLY; Gecko is not a Chromium module.
+
+06. Ladybird Browser
+    URL: https://github.com/LadybirdBrowser/ladybird
+    Purpose: Independent web engine/browser architecture research.
+    Study: Engine design, independent implementation trade-offs.
+    Decision: RESEARCH ONLY; not a shortcut to Chrome parity.
+
+07. Min Browser
+    URL: https://github.com/minbrowser/min
+    Purpose: Lightweight Electron-based browser/prototyping reference.
+    Study: Fast desktop prototyping, simplified UX and small codebase.
+    Decision: PROTOTYPE REFERENCE ONLY; Electron cannot be assumed to
+              provide full Chrome browser feature/extension parity.
+
+============================================================
+B. PRIVACY, READING, AI & AUTOMATION (6 repositories)
+============================================================
+
+08. Brave adblock-rust
+    URL: https://github.com/brave/adblock-rust
+    Purpose: Ad/tracker filter engine.
+    Study: Filter parsing, network/cosmetic filtering and performance.
+    Decision: FIRST CHECK existing Brave Core integration; do not add
+              a second copy when already bundled.
+
+09. Mozilla Readability
+    URL: https://github.com/mozilla/readability
+    Purpose: Article extraction / reader-style content.
+    Study: Readable article extraction and test coverage.
+    Decision: CONDITIONAL; audit foundation's reader capabilities first.
+    Caveat: Extracted HTML must be sanitized before unsafe rendering.
+
+10. llama.cpp
+    URL: https://github.com/ggml-org/llama.cpp
+    Purpose: Local model inference engine for optional on-device AI.
+    Study: Model formats, CPU/GPU requirements, performance, packaging.
+    Decision: FUTURE OPTIONAL MODULE, not required for core browsing.
+    Caveat: Model weights have separate licenses and may be huge.
+
+11. whisper.cpp
+    URL: https://github.com/ggml-org/whisper.cpp
+    Purpose: Local speech transcription.
+    Study: Voice features, offline inference, audio/privacy design.
+    Decision: LATER/OPTIONAL. Model and hardware costs need review.
+
+12. Browser Use
+    URL: https://github.com/browser-use/browser-use
+    Purpose: Browser-task automation/AI agent research.
+    Study: Tool execution, permission models, reliability and safety.
+    Decision: RESEARCH PROTOTYPE ONLY; avoid unapproved automated actions.
+    Caveat: Model/cloud costs can exist even if code is open source.
+
+13. Stagehand
+    URL: https://github.com/browserbase/stagehand
+    Purpose: Alternative AI-driven browser automation framework.
+    Study: Structured actions, testing, integration trade-offs.
+    Decision: COMPARE WITH Browser Use; do NOT add both by default.
+    Caveat: External service and model usage may incur costs.
+
+============================================================
+C. TESTING, UI, PACKAGING & UPDATES (5 repositories)
+============================================================
+
+14. Playwright
+    URL: https://github.com/microsoft/playwright
+    Purpose: End-to-end browser automation/testing framework.
+    Study: Regression suites for navigation, tabs, downloads, etc.
+    Decision: HIGH PRIORITY DEVELOPMENT TOOL after build baseline.
+    Caveat: Validate support for the actual chosen browser binary.
+
+15. Web Platform Tests (WPT)
+    URL: https://github.com/web-platform-tests/wpt
+    Purpose: Shared tests for web standards and compatibility.
+    Study: Targeted browser standards tests and regression selection.
+    Decision: TEST REFERENCE; run relevant subsets, not entire suite
+              blindly in small Codex Cloud environments.
+
+16. Microsoft Fluent UI
+    URL: https://github.com/microsoft/fluentui
+    Purpose: UI component library, especially for React-based surfaces.
+    Study: Accessible controls, layout, style patterns.
+    Decision: OPTIONAL only where the chosen UI framework supports it.
+    Caveat: Not a drop-in replacement for native Chromium browser UI.
+
+17. electron-builder
+    URL: https://github.com/electron-userland/electron-builder
+    Purpose: Electron application packaging and updates.
+    Study: Installer generation if testing an Electron prototype.
+    Decision: MIN/ELECTRON PROTOTYPE ONLY; not the native Chromium fork
+              build and release system.
+
+18. Sparkle
+    URL: https://github.com/sparkle-project/Sparkle
+    Purpose: macOS application auto-update framework.
+    Study: Signed update feed and macOS release/update patterns.
+    Decision: LATER, only if the app's macOS architecture is compatible.
+
+============================================================
+RECOMMENDED STUDY SEQUENCE (FOR NEW CONTRIBUTORS + CODEX)
+============================================================
+
+STAGE 0: CHECK THE EXISTING APP FIRST
+  - Brave Core + Chromium (01-02)
+  - Audit current capability and complete browser source/build flow.
+  - Compare Brave-specific privacy implementation (08), without
+    counting it as a separate browser to integrate.
+  - Benchmark UX ideas using Zen/Min/Ungoogled/Firefox/Ladybird (03-07).
+
+STAGE 1: MAKE A WORKING, UPDATABLE BROWSER
+  - Choose exactly one upstream and pin version/commit.
+  - Determine required build machine, patch maintenance and signing.
+  - Verify navigation, profiles, history, downloads and extension support.
+  - Use Playwright/WPT for bounded tests (14-15).
+  - Do not run full source build without a resource/cost gate.
+
+STAGE 2: PRODUCT DIFFERENTIATION
+  - Prioritize user-tested workspaces, vertical tabs, split view, search.
+  - Consider Readability (09) only if missing upstream.
+  - Consider Fluent UI (16) only for a compatible React surface.
+
+STAGE 3: OPTIONAL AI AND ADVANCED FEATURES
+  - Study llama.cpp and whisper.cpp (10-11) for local AI/voice.
+  - Compare Browser Use vs Stagehand (12-13) for limited automation.
+  - Require explicit consent for page data sharing and user approval
+    for consequential actions. Webpage instructions are untrusted data.
+
+STAGE 4: PLATFORM EXPANSION
+  - Consider Sparkle (18) for a suitable macOS app.
+  - electron-builder (17) is relevant only to Electron prototypes.
+
+============================================================
+REUSE / CREDIT-SAVING POLICY FOR GPT-6 ASTRA IN CODEX
+============================================================
+
+Before any implementation, Codex should record:
+  1. Feature needed; exact end-user acceptance test.
+  2. Whether the chosen upstream already implements it, with proof.
+  3. Best compatible repo / existing source module, pinned version.
+  4. License, attributions, trademarks, vulnerabilities.
+  5. Build and maintenance costs (CPU/RAM/disk/CI/API/model).
+  6. Smallest integration approach and expected patch burden.
+  7. Security/privacy/accessibility implications.
+  8. Cheap focused tests and explicit untested conditions.
+
+DO NOT:
+  - Download, sync or compile complete Chromium/Brave in a small
+    cloud sandbox without user-approved build resources.
+  - Add duplicate packages for capabilities already in Brave Core.
+  - Assume free use of Google Sync, Widevine DRM, search/API keys
+    or Brave-owned services.
+  - Use paid APIs by default or download multi-GB models secretly.
+  - Copy branding/assets/trademarks from competitor products.
+  - Call a candidate integrated, approved, secure or tested until verified.
+
+DECISION STATUS
+---------------
+Primary browser base: Brave Core vs Chromium -> NOT YET FINAL.
+Product differentiation: AI Research Workspace -> DESIGN PROPOSAL.
+Owned browser binary: NOT BUILT.
+Third-party integrations: NOT INSTALLED.
+Full license/SBOM audit: NOT COMPLETED.
+
+MORE DETAIL
+-----------
+README.md
+AGENTS.md
+docs/REUSE_CATALOG.md
+docs/ARCHITECTURE.md
+docs/FEATURE_MATRIX.md
+docs/ROADMAP.md
+docs/BUILD_AND_COST.md
+docs/LEGAL_AND_BRANDING.md
+
+All links refer to public repositories discussed previously.
+Versions, API compatibility, security status, and licenses should be
+reverified at the actual integration date.
