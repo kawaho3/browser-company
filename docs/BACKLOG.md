@@ -44,3 +44,20 @@ This is the **planning backlog**. Turn each work package into small GitHub issue
 - Research CI build machine configurations and realistic costs without running the builds.
 
 **Use GitHub issue templates**. For large epics, create several independently testable PRs. Do not open one mega-task asking Codex to build the complete browser.
+
+## Research work performed 2026-11-16 — scope and remaining gates
+
+See [M0 foundation audit](M0_FOUNDATION_AUDIT_2026-11-16.md) and the [M0 offline validator](../scripts/validate_references.py). Work below is research evidence, not closed issues or a completed M0 milestone:
+
+| ID | Research progress | Blocking acceptance evidence |
+| --- | --- | --- |
+| BC-001 | Brave source path, patch and dependency overview documented | Stable chosen revision and transitive SBOM not reviewed |
+| BC-002 | Direct Chromium source and service comparison documented | Actual Windows baseline measurement unavailable |
+| BC-003 | Preliminary GitHub-reported license metadata for 18 candidates | File-level notices, top-level project license, contributor terms require approval |
+| BC-004 | P0 feature paths and smoke specifications added | No selected fork binary or completed smoke test |
+| BC-005 | Official Windows prerequisite references and proposed builder budget | Machine, cost cap and measured resources require approval |
+| BC-006 | Security boundaries/update and release design outlined | Named owners, signing, incident process and test results absent |
+| BC-007 | User-research requirement clarified | 5–10 actual interviews or equivalent accepted evidence not done |
+| BC-008 | Provisional Brave selection and scored comparison | Maintainer approval, stable source pin and resource budget outstanding |
+
+No work on BC-101 or later is authorized by this update.
