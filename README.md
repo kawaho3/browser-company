@@ -74,3 +74,9 @@ This is a **public planning repository**, not yet an open-source licensed browse
 - Security: [SECURITY.md](SECURITY.md)
 
 *This project is independent; it is not affiliated with Google, Chromium, Brave, Mozilla, Microsoft, or OpenAI.*
+
+## M0 research update (2026-11-16)
+
+A [source-backed Brave Core versus Chromium audit](docs/M0_FOUNDATION_AUDIT_2026-11-16.md) now covers upstream source paths, all 18 study repositories, license metadata, Windows build planning, a weighted **provisional** Brave Core recommendation, risk controls, and the BC-001–BC-008 decision gates. **ADR-002 remains unapproved**; this repository still contains no browser executable or integrated upstream tree.
+
+A small, offline [reference-index validator](scripts/validate_references.py) and [unit tests](tests/test_validate_references.py) check research-file structure. Run `python3 scripts/validate_references.py` and `python3 -m unittest discover -s tests -v`. These checks do not verify real upstream functionality or complete a native browser build.

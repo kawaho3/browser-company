@@ -50,3 +50,38 @@ Parity means the **specified user journey passes repeatable tests**, not that a 
 - Web compatibility: trusted sites from several categories with clear expected behavior.
 - Security: crash handling, malicious download warnings where supported, sandbox/permissions.
 - Accessibility: keyboard-only flows, focus order, labels, contrast, screen-reader smoke checks.
+
+## Source-backed M0 pointers (2026-11-16; NOT product verification)
+
+Research snapshot and full scope: [M0 foundation audit](M0_FOUNDATION_AUDIT_2026-11-16.md). Brave Core snapshot 4d10ac1f2a46; Chromium mirror snapshot 4773b76908fb. These file paths establish **potential reuse**, not a running app, supported API, functional parity, or tested binary.
+
+| Priority feature | Candidate upstream source | Required Windows x64 acceptance test |
+| --- | --- | --- |
+| Navigation, windows and tabs | [Chromium chrome/browser/ui](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/chrome/browser/ui) | New window, new tabs, back/forward, 10-tab restore |
+| Profiles/private browsing | [Chromium profiles](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/chrome/browser/profiles) | Private session creates no persistent history; distinct profiles isolate data |
+| Bookmarks | [Chromium bookmarks](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/chrome/browser/bookmarks) | Add, edit, restart and import/export bookmarks |
+| Downloads | [Brave download](https://github.com/brave/brave-core/tree/4d10ac1f2a4690548ccf5430ca02e72c851bfe74/browser/download) | Save file, pause/cancel, verify filename/path and warning UX |
+| Extensions | [Brave extensions](https://github.com/brave/brave-core/tree/4d10ac1f2a4690548ccf5430ca02e72c851bfe74/browser/extensions) | Install compatible MV3 extension, permission flow, reload and update |
+| Password handling | [Chromium password_manager](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/components/password_manager) | OS-backed protected secret, autofill permissions, no plaintext logs |
+| Network/sandbox | [Chromium network](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/services/network) / [sandbox](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/sandbox) | Dedicated sandbox/process and TLS/security integration checks |
+| Privacy blocking | [Brave Shields](https://github.com/brave/brave-core/tree/4d10ac1f2a4690548ccf5430ca02e72c851bfe74/components/brave_shields) | Known test tracker and per-site override with no duplicate engine |
+| Vertical tabs | [Brave tabs](https://github.com/brave/brave-core/tree/4d10ac1f2a4690548ccf5430ca02e72c851bfe74/browser/ui/tabs) | Keyboard navigation, focus, tab persistence, screen-reader naming |
+| Split view | [Brave split_view](https://github.com/brave/brave-core/tree/4d10ac1f2a4690548ccf5430ca02e72c851bfe74/browser/ui/split_view) | Two isolated sites, focus, navigation, resize and session persistence |
+
+**Our product remains NOT BUILT in every matrix row.** No smoke tests are runnable until approved M1 baseline compilation.
+
+### Additional P0 source pointers (Chromium snapshot 4773b76908fb)
+
+| Feature | Investigated upstream source directory | Not-yet-run acceptance check |
+| --- | --- | --- |
+| History persistence | [components/history](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/components/history) | Visit/back/forward, restart, history deletion and private-mode exclusion |
+| Cookies/site permissions | [components/content_settings](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/components/content_settings) and [components/permissions](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/components/permissions) | Third-party cookie policy, site scopes, permission revocation |
+| Session restore | [chrome/browser/sessions](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/chrome/browser/sessions) | Crash/restart restore with ten tabs and profile separation |
+| Address and search bar | [chrome/browser/ui/views/omnibox](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/chrome/browser/ui/views/omnibox) | URL/search navigation, malformed URL handling, keyboard focus |
+| Developer tools | [chrome/browser/devtools](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/chrome/browser/devtools) | Inspect and debug a test page, confirm source maps and console |
+| Accessibility | [ui/accessibility](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/ui/accessibility) | Keyboard-only window/tab navigation, accessibility tree and screen reader |
+| PDF / print | [pdf](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/pdf), [chrome/browser/printing](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/chrome/browser/printing) | Open PDF, print preview, PDF export; separate DRM/codec license audit |
+| Unsafe download protection | [components/safe_browsing](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/components/safe_browsing) | Verify warning or alternative independently licensed protection without assuming Google service access |
+| Native application UI | [chrome/browser/ui/views](https://github.com/chromium/chromium/tree/4773b76908fb09108dbca92c6e9045c0e5b49342/chrome/browser/ui/views) | Theme/layout, window navigation, focus and assistive labeling |
+
+**Security updates, packaged install/update, company-owned identity and independent services remain separate product/release engineering tasks; they cannot be validated by locating upstream source paths.** All of the above are research-only references; no Windows browser behavior was exercised.
