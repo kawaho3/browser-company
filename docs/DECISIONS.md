@@ -51,3 +51,9 @@ These are **planning decisions** as of 2026-11-13. They do not imply a tested im
 7. What is a sustainable security patch SLA?
 
 **Process:** write an ADR proposal in a PR; do not silently treat a candidate library as selected.
+
+## ADR-002 evidence update — 2026-11-16 (proposal, NOT approval)
+
+The [M0 foundation audit](M0_FOUNDATION_AUDIT_2026-11-16.md) compares Brave Core with direct Chromium using verified source entry points, currently published Windows requirements, licensing metadata and a transparent weighted rubric. It **recommends Brave Core provisionally** for reuse of vertical tabs, split view and privacy protections. This is **not a signed-off upstream choice**, version pin, license clearance or permission for an expensive checkout.
+
+Maintainer decision required: accept/reject the proposal, identify a stable Brave tag and source revision, approve project licensing/contributor terms, a Windows x64 builder and max spend, and designate security/update owners. If independent service decoupling is too invasive, revisit direct Chromium before M1. All existing ADR-002 gates remain active.
