@@ -74,3 +74,9 @@ This is a **public planning repository**, not yet an open-source licensed browse
 - Security: [SECURITY.md](SECURITY.md)
 
 *This project is independent; it is not affiliated with Google, Chromium, Brave, Mozilla, Microsoft, or OpenAI.*
+
+## Resume this project without a previous chat
+
+Start with [START_HERE_NEXT_SESSION.md](START_HERE_NEXT_SESSION.md), then the [consolidated research/Word handoff](docs/PROJECT_MASTER_HANDOFF_2026-11-16.md), [conversation decision history](docs/CHAT_AND_DECISION_LOG_2026-11-16.md), [original user master prompt](docs/archive/ORIGINAL_BROWSER_MASTER_PROMPT_2026-11.md), and [earlier launch-plan archive](docs/archive/HISTORICAL_LAUNCH_PLAN_2026-11-12_TEXT.md). The historical WebView2 prototype plan is preserved as an earlier alternative, not the current native browser specification.
+
+**As of 2026-11-16:** Brave Core was the **provisional recommendation, not an approved native integration**, and [M0 research PR #1](https://github.com/kawaho3/browser-company/pull/1) was open/unmerged. Check live status before proceeding. No compiled product or installer exists in the project.

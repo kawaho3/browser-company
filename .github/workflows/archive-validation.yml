@@ -1,0 +1,30 @@
+name: Validate documentation archive
+
+on:
+  pull_request:
+    paths:
+      - 'START_HERE_NEXT_SESSION.md'
+      - 'docs/PROJECT_MASTER_HANDOFF_2026-11-16.*'
+      - 'docs/CHAT_AND_DECISION_LOG_2026-11-16.md'
+      - 'docs/archive/**'
+      - 'scripts/validate_archive.py'
+      - '.github/workflows/archive-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: browser-archive-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline-archive-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Check DOCX package and archived sources
+        run: python3 scripts/validate_archive.py
